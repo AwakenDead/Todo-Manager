@@ -78,7 +78,7 @@ public class demoSecurityConfig extends WebSecurityConfigurerAdapter{
         http.cors().and().csrf().disable()
             .authorizeRequests()
                 .antMatchers("/admin/*").hasRole("ADMIN")
-                .antMatchers("/signIn", "/signUp", "/available/{username}").permitAll().anyRequest().authenticated()
+                .antMatchers("/signIn", "/signUp", "/available/{username}", "/static/**").permitAll().anyRequest().authenticated()
         .and()
             .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
