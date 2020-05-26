@@ -51,6 +51,7 @@ class editTodo extends Component{
                 .then(response => {
                     if(response.ok){
                         this.props.messageModal("Todo updated successsfully")
+                        this.props.onModalClose()
                     }else{
                         throw new Error()
                     }
@@ -58,9 +59,6 @@ class editTodo extends Component{
                 .catch(error => {
                     this.props.messageModal('Something went wrong');
                 })
-
-                this.props.onModalClose()
-                
             }
         }
 
